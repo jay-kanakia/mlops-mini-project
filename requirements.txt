@@ -1,0 +1,7 @@
+pandas
+numpy
+scikit-learn
+nltk
+awscli
+dvclive
+dvclive[s3]
