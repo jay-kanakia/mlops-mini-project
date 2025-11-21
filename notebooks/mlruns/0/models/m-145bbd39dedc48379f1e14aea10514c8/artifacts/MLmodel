@@ -1,0 +1,22 @@
+artifact_path: file:///c:/Users/abc/Data%20Science%20and%20ML/CampusX/mlops-mini-project/notebooks/mlruns/0/models/m-145bbd39dedc48379f1e14aea10514c8/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.12.7
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.7.2
+mlflow_version: 3.5.1
+model_id: m-145bbd39dedc48379f1e14aea10514c8
+model_size_bytes: 8719
+model_uuid: m-145bbd39dedc48379f1e14aea10514c8
+prompts: null
+run_id: 852ea6bd2c2d4499a9a78af96add93a0
+utc_time_created: '2025-11-19 09:09:34.377416'

@@ -1,0 +1,14 @@
+artifact_uri: file:///c:/Users/abc/Data%20Science%20and%20ML/CampusX/mlops-mini-project/notebooks/mlruns/0/c3a3c45b15da427b98a0d3523cd1766b/artifacts
+end_time: 1763544076495
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: c3a3c45b15da427b98a0d3523cd1766b
+run_name: illustrious-lynx-169
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1763543434177
+status: 3
+tags: []
+user_id: abc

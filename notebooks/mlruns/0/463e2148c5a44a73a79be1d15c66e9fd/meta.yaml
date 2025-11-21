@@ -1,0 +1,14 @@
+artifact_uri: file:///c:/Users/abc/Data%20Science%20and%20ML/CampusX/mlops-mini-project/notebooks/mlruns/0/463e2148c5a44a73a79be1d15c66e9fd/artifacts
+end_time: 1763544061965
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 463e2148c5a44a73a79be1d15c66e9fd
+run_name: bald-gull-825
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1763543617986
+status: 3
+tags: []
+user_id: abc

@@ -1,0 +1,14 @@
+artifact_uri: file:///c:/Users/abc/Data%20Science%20and%20ML/CampusX/mlops-mini-project/notebooks/mlruns/0/5005556f42ce4231b2c6f29753f97b9d/artifacts
+end_time: 1763544034775
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 5005556f42ce4231b2c6f29753f97b9d
+run_name: amazing-bat-757
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1763543947396
+status: 3
+tags: []
+user_id: abc

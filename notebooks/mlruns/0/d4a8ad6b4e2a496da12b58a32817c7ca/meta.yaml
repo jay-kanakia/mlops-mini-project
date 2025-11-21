@@ -1,0 +1,14 @@
+artifact_uri: file:///c:/Users/abc/Data%20Science%20and%20ML/CampusX/mlops-mini-project/notebooks/mlruns/0/d4a8ad6b4e2a496da12b58a32817c7ca/artifacts
+end_time: 1763544071665
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: d4a8ad6b4e2a496da12b58a32817c7ca
+run_name: delicate-fly-904
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1763543496430
+status: 3
+tags: []
+user_id: abc

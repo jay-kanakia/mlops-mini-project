@@ -1,0 +1,14 @@
+artifact_uri: file:///c:/Users/abc/Data%20Science%20and%20ML/CampusX/mlops-mini-project/notebooks/mlruns/0/61f24a459c4f4b95a72f5d7c16a1fc6a/artifacts
+end_time: 1763544102160
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 61f24a459c4f4b95a72f5d7c16a1fc6a
+run_name: gaudy-grub-950
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1763543102465
+status: 3
+tags: []
+user_id: abc

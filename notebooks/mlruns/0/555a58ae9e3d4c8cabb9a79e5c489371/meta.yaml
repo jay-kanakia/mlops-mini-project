@@ -1,0 +1,14 @@
+artifact_uri: file:///c:/Users/abc/Data%20Science%20and%20ML/CampusX/mlops-mini-project/notebooks/mlruns/0/555a58ae9e3d4c8cabb9a79e5c489371/artifacts
+end_time: 1763544047055
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 555a58ae9e3d4c8cabb9a79e5c489371
+run_name: auspicious-trout-164
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1763543825958
+status: 3
+tags: []
+user_id: abc

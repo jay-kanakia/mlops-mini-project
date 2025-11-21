@@ -1,0 +1,14 @@
+artifact_uri: file:///c:/Users/abc/Data%20Science%20and%20ML/CampusX/mlops-mini-project/notebooks/mlruns/0/bbfbb682d4574cf2991da495efa69fd6/artifacts
+end_time: 1763544087575
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: bbfbb682d4574cf2991da495efa69fd6
+run_name: resilient-cub-287
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1763543311549
+status: 3
+tags: []
+user_id: abc

@@ -1,0 +1,14 @@
+artifact_uri: file:///c:/Users/abc/Data%20Science%20and%20ML/CampusX/mlops-mini-project/notebooks/mlruns/0/852ea6bd2c2d4499a9a78af96add93a0/artifacts
+end_time: 1763544082275
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 852ea6bd2c2d4499a9a78af96add93a0
+run_name: judicious-turtle-845
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1763543373982
+status: 3
+tags: []
+user_id: abc

@@ -1,0 +1,14 @@
+artifact_uri: file:///c:/Users/abc/Data%20Science%20and%20ML/CampusX/mlops-mini-project/notebooks/mlruns/0/4e75e1df216146debfc37cde8f8aeee5/artifacts
+end_time: 1763542583100
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 4e75e1df216146debfc37cde8f8aeee5
+run_name: delicate-whale-713
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1763542549070
+status: 4
+tags: []
+user_id: abc

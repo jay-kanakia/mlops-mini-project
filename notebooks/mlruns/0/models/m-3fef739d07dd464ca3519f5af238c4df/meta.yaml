@@ -1,0 +1,10 @@
+artifact_location: file:///c:/Users/abc/Data%20Science%20and%20ML/CampusX/mlops-mini-project/notebooks/mlruns/0/models/m-3fef739d07dd464ca3519f5af238c4df/artifacts
+creation_timestamp: 1763543695856
+experiment_id: '0'
+last_updated_timestamp: 1763543718026
+model_id: m-3fef739d07dd464ca3519f5af238c4df
+model_type: null
+name: model
+source_run_id: 7d9fd64862d74f48843017f9e72c9917
+status: 2
+status_message: null

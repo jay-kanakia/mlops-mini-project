@@ -1,0 +1,14 @@
+artifact_uri: file:///c:/Users/abc/Data%20Science%20and%20ML/CampusX/mlops-mini-project/notebooks/mlruns/0/ee9e8b7e8f02425584aed2bb24ffaf92/artifacts
+end_time: 1763544097285
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: ee9e8b7e8f02425584aed2bb24ffaf92
+run_name: placid-robin-972
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1763543175438
+status: 3
+tags: []
+user_id: abc
