@@ -9,9 +9,11 @@ import logging
 import mlflow
 import mlflow.sklearn
 import dagshub
+import dagshub
 
-mlflow.set_tracking_uri('https://dagshub.com/campusx-official/mlops-mini-project.mlflow')
-dagshub.init(repo_owner='campusx-official', repo_name='mlops-mini-project', mlflow=True)
+mlflow.set_tracking_uri('https://dagshub.com/jay-kanakia/mlops-mini-project.mlflow')
+dagshub.init(repo_owner='jay-kanakia', repo_name='mlops-mini-project', mlflow=True)
+
 
 # logging configuration
 logger = logging.getLogger('model_evaluation')

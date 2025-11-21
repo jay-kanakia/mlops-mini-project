@@ -6,6 +6,7 @@ __pycache__/
 *.so
 
 myenv
+mlrun
 
 # Distribution / packaging
 .Python
