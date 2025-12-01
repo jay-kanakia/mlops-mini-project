@@ -3,6 +3,7 @@
 import unittest
 import mlflow
 import pickle
+import pandas as pd
 
 class TestModelLoading(unittest.TestCase):
 
