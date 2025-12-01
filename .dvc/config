@@ -1,4 +1,4 @@
 [core]
     remote = myremote
 ['remote "myremote"']
-    url = C:\Users\abc\AppData\Local\Temp\mlops-mini-project
+    url = s3://mlflow-aws-demo
