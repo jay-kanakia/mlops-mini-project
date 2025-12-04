@@ -10,7 +10,7 @@ class TestModelLoading(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         # Set up MLflow tracking URI
-        mlflow.set_tracking_uri('http://ec2-52-66-126-66.ap-south-1.compute.amazonaws.com:80')
+        mlflow.set_tracking_uri('https://ec2-3-111-33-16.ap-south-1.compute.amazonaws.com:80')
 
         # Load the model from MLflow model registry
         cls.model_name = "my_model"

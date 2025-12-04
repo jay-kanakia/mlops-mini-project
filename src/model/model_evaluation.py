@@ -12,7 +12,7 @@ import dagshub
 import dagshub
 import os
 
-mlflow.set_tracking_uri('http://ec2-52-66-126-66.ap-south-1.compute.amazonaws.com:80')
+mlflow.set_tracking_uri('https://ec2-3-111-33-16.ap-south-1.compute.amazonaws.com:80')
 
 # logging configuration
 logger = logging.getLogger('model_evaluation')
