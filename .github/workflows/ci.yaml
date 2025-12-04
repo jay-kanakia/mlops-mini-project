@@ -43,3 +43,7 @@ jobs:
       - name: Run model test
         run: |
           python -m unittest tests/test_model.py
+      
+      - name: Run Flask app tests
+        if: success()
+        run: python -m unittest tests/test_flask_app.py
