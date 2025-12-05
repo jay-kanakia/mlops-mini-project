@@ -10,7 +10,6 @@ import pandas as pd
 
 # Set up MLflow tracking URI
 mlflow.set_tracking_uri('http://ec2-3-111-33-84.ap-south-1.compute.amazonaws.com:8080')
-
 app = Flask(__name__)
 
 # load model from model registry
