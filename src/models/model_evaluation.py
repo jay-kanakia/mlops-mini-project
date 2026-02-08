@@ -6,7 +6,7 @@ import json
 import logging
 
 from sklearn.metrics import accuracy_score,f1_score,precision_score,roc_auc_score,classification_report,recall_score
-from sklearn.model_selection import LogisticRegression
+from sklearn.linear_model import LogisticRegression
 
 logger=logging.getLogger('Model_evaluation')
 logger.setLevel('DEBUG')
@@ -80,7 +80,7 @@ def save_metrics(metrics_dict:dict,file_path:str)->None:
 def main():
     try:
         model=load_model(file_path='./models/model.pkl')
-        X_test,y_test=load_data(data_path='./data/processed/test_tfidf.csv')
+        X_test,y_test=load_data(data_path='./data/processed/test_bow.csv')
         metrics_dict=model_eval(model,X_test,y_test)
         save_metrics(metrics_dict,file_path='./reports/metrics.json')
         logger.debug('Model evaluation step completed successfully')

@@ -29,8 +29,8 @@ stages:
     - .\data\processed\
     - .\src\models\model_building.py
     params:
-    - model_building.n_estimators
-    - model_building.learning_rate
+    - model_building.max_iter
+    - model_building.l1_ratio
     outs:
     - .\models\
   model_evaluation:

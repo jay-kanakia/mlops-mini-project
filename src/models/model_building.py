@@ -44,7 +44,7 @@ def load_params(param_path:str)->dict:
 def load_data(data_path:str)->tuple[pd.DataFrame,pd.DataFrame]:
     try:
         raw_data_path=os.path.join(data_path,'processed')
-        train_data=pd.read_csv(os.path.join(raw_data_path,'train_tfidf.csv'))
+        train_data=pd.read_csv(os.path.join(raw_data_path,'train_bow.csv'))
         X_train=train_data.iloc[:,:-1]
         y_train=train_data.iloc[:,-1]
 
@@ -56,7 +56,7 @@ def load_data(data_path:str)->tuple[pd.DataFrame,pd.DataFrame]:
         logger.error('Unexpected error occured during data loading %s',e)
         raise
 
-def model_eval(X_train:np.ndarray,y_train:np.ndarray,params:dict)->XGBClassifier:
+def model_eval(X_train:np.ndarray,y_train:np.ndarray,params:dict)->LogisticRegression:
     try:
         max_iter=params['model_building']['max_iter']
         l1_ratio=params['model_building']['l1_ratio']
@@ -64,7 +64,7 @@ def model_eval(X_train:np.ndarray,y_train:np.ndarray,params:dict)->XGBClassifier
         # xgb_model=XGBClassifier(n_estimators=n_estimators,learning_rate=learning_rate)
         # xgb_model.fit(X_train,y_train)
 
-        lr=LogisticRegression(max_iter=max_iter,l1_ratio=l1_ratio)
+        lr=LogisticRegression(max_iter=max_iter,solver='saga',l1_ratio=l1_ratio,n_jobs=-1)
         lr.fit(X_train,y_train)
 
         logger.debug('model builded successfully')

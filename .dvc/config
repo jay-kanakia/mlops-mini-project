@@ -1,0 +1,4 @@
+[core]
+    remote = myremote
+['remote "myremote"']
+    url = C:\Users\JAYKAN~1\AppData\Local\Temp\mlops-mini-project
