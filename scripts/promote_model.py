@@ -19,18 +19,22 @@ def promote_model():
 
     model_name='final_model'
 
-    latest_version_staging=client.get_latest_versions(model_name,stages=['Staging'])[0].version
+    staging_versions = client.get_latest_versions(model_name, stages=['Staging'])
+    if not staging_versions:
+        print("No model in Staging to promote. Exiting.")
+        exit(0)
 
-    # Archive the current production model
-    prod_versions = client.get_latest_versions(model_name, stages=["Production"])
-    for version in prod_versions:
+    latest_version_staging = staging_versions[0].version
+
+    # Archive current Production models
+    for version in client.get_latest_versions(model_name, stages=['Production']):
         client.transition_model_version_stage(
             name=model_name,
             version=version.version,
             stage="Archived"
         )
 
-    # Promote the new model to production
+    # Promote the new model
     client.transition_model_version_stage(
         name=model_name,
         version=latest_version_staging,
@@ -38,5 +42,5 @@ def promote_model():
     )
     print(f"Model version {latest_version_staging} promoted to Production")
 
-if __name__ == "__main__":
-    promote_model()
+if __name__=='__main__':
+  promote_model()
