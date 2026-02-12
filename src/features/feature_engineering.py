@@ -82,8 +82,8 @@ def save_data(train_df,test_df,data_path):
     try:
         raw_data_path=os.path.join(data_path,'processed')
         os.makedirs(raw_data_path,exist_ok=True)
-        train_df.to_csv(os.path.join(raw_data_path,'train_bow.csv'))
-        test_df.to_csv(os.path.join(raw_data_path,'test_bow.csv'))
+        train_df.to_csv(os.path.join(raw_data_path,'train_bow.csv'),index=False)
+        test_df.to_csv(os.path.join(raw_data_path,'test_bow.csv'),index=False)
         logger.debug('Data saved successfully as %s',data_path)
     except Exception as e:
         logger.error('Unexpected error occured during saving the data %s',e)

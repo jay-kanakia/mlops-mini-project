@@ -116,8 +116,8 @@ def save_data(train_data:pd.DataFrame,test_data:pd.DataFrame,data_path:str)->Non
   try:
     raw_data_path=os.path.join(data_path,'interim')
     os.makedirs(raw_data_path,exist_ok=True)
-    train_data.to_csv(os.path.join(raw_data_path,'train_processed.csv'))
-    test_data.to_csv(os.path.join(raw_data_path,'test_processed.csv'))
+    train_data.to_csv(os.path.join(raw_data_path,'train_processed.csv'),index=False)
+    test_data.to_csv(os.path.join(raw_data_path,'test_processed.csv'),index=False)
     logger.debug('Data saved successfully')
   except Exception as e:
     logger.error('Unexpected error occured while saving the data')
