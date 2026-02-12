@@ -45,6 +45,8 @@ stages:
     outs:
       - reports/metrics.json
       - reports/model_info.json
+    env:
+      DAGSHUB_PAT: ${DAGSHUB_PAT}
       
   # model_registry:
   #   cmd: python src/models/model_register.py
