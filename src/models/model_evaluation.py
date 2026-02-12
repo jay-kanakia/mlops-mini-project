@@ -120,7 +120,7 @@ def main():
     X_test = test_data.iloc[:, :-1].values
     y_test = test_data.iloc[:, -1].values
     metrics = evaluate_model(clf, X_test, y_test) 
-    save_metrics(metrics, './reports/model_info.json')
+    save_metrics(metrics, './reports/metrics.json')
     
     with mlflow.start_run() as run:  # Start an MLflow run
         # Log metrics to MLflow
