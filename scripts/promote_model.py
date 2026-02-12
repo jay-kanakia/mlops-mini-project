@@ -1,6 +1,8 @@
 import os
 import mlflow
 
+import warnings
+warnings.filterwarnings("ignore", category=FutureWarning)
 
 def promote_model():
 
