@@ -430,7 +430,7 @@ python-dotenv==1.2.1
     #   pydantic-settings
 pytz==2025.2
     # via pandas
-pywin32==311
+#pywin32==311
     # via
     #   docker
     #   dvc-task
