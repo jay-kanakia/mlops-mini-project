@@ -6,6 +6,9 @@ from flask_app.preprocessing_utility import normalize_text
 import pickle
 import os
 import pandas as pd
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Set up DagsHub credentials for MLflow tracking
 dagshub_token = os.getenv("DAGSHUB_PAT")
