@@ -45,11 +45,13 @@ def load_model_info(file_path: str) -> dict:
 def register_model(model_name: str, model_info: dict):
     """Register the model to the MLflow Model Registry."""
     try:
-        model_uri = f"runs:/{model_info['run_id']}/{model_info['model_path']}"
-        
+        #model_uri = f"runs:/{model_info['run_id']}/{model_info['model_path']}"
+        model_uri = model_info['model_path']
+
         # Register the model
         model_version = mlflow.register_model(model_uri, model_name)
-        
+        print('model version', model_version)
+
         # Transition the model to "Staging" stage
         client = mlflow.tracking.MlflowClient()
         client.transition_model_version_stage(
@@ -68,7 +70,7 @@ def main():
         model_info_path = 'reports/model_info.json'
         model_info = load_model_info(model_info_path)
         
-        model_name = "my_model_name"
+        model_name = "model-demo-project"
         register_model(model_name, model_info)
     except Exception as e:
         logger.error('Failed to complete the model registration process: %s', e)

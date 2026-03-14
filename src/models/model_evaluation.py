@@ -12,16 +12,16 @@ import dagshub
 import os
 
 #setting up dagshub pat
-dagshub_token=os.getenv('DAGSHUB_PAT')
-if not dagshub_token:
-    raise EnvironmentError('DAGSHUB_PAT environment variable is not set')
+# dagshub_token=os.getenv('DAGSHUB_PAT')
+# if not dagshub_token:
+#     raise EnvironmentError('DAGSHUB_PAT environment variable is not set')
 
-os.environ["MLFLOW_TRACKING_USERNAME"] = dagshub_token
-os.environ["MLFLOW_TRACKING_PASSWORD"] = dagshub_token
+# os.environ["MLFLOW_TRACKING_USERNAME"] = dagshub_token
+# os.environ["MLFLOW_TRACKING_PASSWORD"] = dagshub_token
 
 # Set up MLflow tracking URI
 mlflow.set_tracking_uri('https://dagshub.com/jay-kanakia/mlops-mini-project.mlflow')
-#dagshub.init(repo_owner='jay-kanakia', repo_name='mlops-mini-project', mlflow=True) -- not required
+dagshub.init(repo_owner='jay-kanakia', repo_name='mlops-mini-project', mlflow=True)
 
 # logging configuration
 logger = logging.getLogger('model_evaluation')
@@ -113,7 +113,7 @@ def save_model_info(run_id: str, model_path: str, file_path: str) -> None:
         raise
 
 def main():
-    mlflow.set_experiment("new_dvc-pipeline")
+    mlflow.set_experiment("mini-project")
 
     clf = load_model('./models/model.pkl')
     test_data = load_data('./data/processed/test_bow.csv')
@@ -134,10 +134,13 @@ def main():
                 mlflow.log_param(param_name, param_value)
         
         # Log model to MLflow
-        mlflow.sklearn.log_model(sk_model =clf,artifact_path="new_model",registered_model_name='final_model')
-        
+        model_info_obj = mlflow.sklearn.log_model(sk_model =clf,artifact_path="mini-proj-model")
+        print("model_info_obj : ",model_info_obj)
+        actual_model_uri = model_info_obj.model_uri
+        print("actual_model_uri : ",actual_model_uri)
+
         # Save model info
-        save_model_info(run.info.run_id, "new_model", './reports/model_info.json')
+        save_model_info(run.info.run_id,actual_model_uri,'./reports/model_info.json')
         
         # Log the metrics file to MLflow
         mlflow.log_artifact('reports/metrics.json')
