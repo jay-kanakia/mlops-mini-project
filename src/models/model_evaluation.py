@@ -10,22 +10,20 @@ import mlflow
 import mlflow.sklearn
 import dagshub
 import os
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 
-# 1. Load local .env (skipped in CI)
-load_dotenv()
+# load_dotenv()
 
-# 2. Extract the PAT from environment variables
-token = os.getenv('DAGSHUB_PAT')
-if not token:
-    raise ValueError("DAGSHUB_PAT not found. Check GitHub Secrets name.")
+dagshub_token=os.getenv('DAGSHUB_PAT')
+if not dagshub_token:
+    raise EnvironmentError('DAGSHUB_PAT environment variable is not set')
 
-# 3. Force DagsHub to use this token (stops OAuth popup)
-dagshub.auth.add_app_token(token)
+os.environ["MLFLOW_TRACKING_USERNAME"] = dagshub_token
+os.environ["MLFLOW_TRACKING_PASSWORD"] = dagshub_token
 
-# 4. Force MLflow to use this token for basic auth
-os.environ["MLFLOW_TRACKING_USERNAME"] = token
-os.environ["MLFLOW_TRACKING_PASSWORD"] = token
+# Set up MLflow tracking URI
+mlflow.set_tracking_uri('https://dagshub.com/jay-kanakia/mlops-mini-project.mlflow')
+dagshub.init(repo_owner='jay-kanakia', repo_name='mlops-mini-project', mlflow=True)
 
 # logging configuration
 logger = logging.getLogger('model_evaluation')
