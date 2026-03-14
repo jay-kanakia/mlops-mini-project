@@ -1,12 +1,12 @@
 import pandas as pd
 import numpy as np
 import os
-import xgboost
+#import xgboost
 import pickle
 import logging
 import yaml
 
-from xgboost import XGBClassifier
+#from xgboost import XGBClassifier
 from sklearn.linear_model import LogisticRegression
 
 logger=logging.getLogger('model_building')
