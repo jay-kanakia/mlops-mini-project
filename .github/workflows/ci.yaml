@@ -27,6 +27,18 @@
           run: |
             pip install -r requirements.txt
 
+        - name: Debug Secret
+          run: |
+            if [ -z "${{ secrets.DAGSHUB_PAT }}" ]; then
+              echo "SECRET_STATUS: Secret is EMPTY"
+            else
+              echo "SECRET_STATUS: Secret exists"
+              # This counts the characters. A real token should be around 40.
+              echo "SECRET_LENGTH: ${#TOKEN}" 
+            fi
+          env:
+            TOKEN: ${{ secrets.DAGSHUB_PAT }}
+
         - name: run pipeline
           env:
             DAGSHUB_PAT: ${{ secrets.DAGSHUB_PAT }} 
