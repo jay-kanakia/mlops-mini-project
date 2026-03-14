@@ -2,7 +2,7 @@ data_ingestion:
   test_size: 0.22
 
 feature_engineering:
-  max_features: 300
+  max_features: 301
 
 model_building:
   max_iter: 299
