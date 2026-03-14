@@ -5,9 +5,9 @@ import mlflow
 import logging
 import os
 import dagshub
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 
-load_dotenv()
+# load_dotenv()
 
 dagshub_token=os.getenv('DAGSHUB_PAT')
 if not dagshub_token:
