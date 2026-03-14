@@ -16,6 +16,8 @@ class TestModelLoading(unittest.TestCase):
         if not dagshub_token:
             raise EnvironmentError("DAGSHUB_PAT environment variable is not set")
 
+        dagshub_token = dagshub_token.strip()
+
         os.environ["MLFLOW_TRACKING_USERNAME"] = dagshub_token
         os.environ["MLFLOW_TRACKING_PASSWORD"] = dagshub_token
 
