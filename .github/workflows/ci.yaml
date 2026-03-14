@@ -63,7 +63,7 @@
         - name: Build Docker Image
           if: success()
           run: |
-            docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/emotion:latest
+            docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/emotion:latest .
 
         - name: Push Docker image to Docker hub
           if: success()
