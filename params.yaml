@@ -5,5 +5,5 @@ feature_engineering:
   max_features: 245
 
 model_building:
-  max_iter: 265
+  max_iter: 300
   l1_ratio: 0.19
