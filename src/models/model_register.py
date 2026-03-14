@@ -5,7 +5,9 @@ import mlflow
 import logging
 import os
 import dagshub
+from dotenv import load_dotenv
 
+load_dotenv()
 
 # Set up MLflow tracking URI
 mlflow.set_tracking_uri('https://dagshub.com/jay-kanakia/mlops-mini-project.mlflow')
