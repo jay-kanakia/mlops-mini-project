@@ -13,6 +13,8 @@ def promote_model():
     if not dagshub_token:
         raise EnvironmentError('DAGSHUB_PAT environment variable is not set')
 
+    dagshub_token = dagshub_token.strip()
+
     os.environ['MLFLOW_TRACKING_USERNAME']=dagshub_token
     os.environ['MLFLOW_TRACKING_PASSWORD']=dagshub_token
 
@@ -20,7 +22,7 @@ def promote_model():
 
     client=mlflow.tracking.MlflowClient()
 
-    model_name='final_model'
+    model_name='model-demo-project'
 
     staging_versions = client.get_latest_versions(model_name, stages=['Staging'])
     if not staging_versions:

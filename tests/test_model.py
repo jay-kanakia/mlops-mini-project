@@ -23,7 +23,7 @@ class TestModelLoading(unittest.TestCase):
         mlflow.set_tracking_uri('https://dagshub.com/jay-kanakia/mlops-mini-project.mlflow')
 
         # Load the new model from MLflow model registry
-        cls.new_model_name = "final_model"
+        cls.new_model_name = "model-demo-project"
         cls.new_model_version = cls.get_latest_model_version(cls.new_model_name)
         cls.new_model_uri = f'models:/{cls.new_model_name}/{cls.new_model_version}'
         cls.new_model = mlflow.pyfunc.load_model(cls.new_model_uri)
@@ -74,10 +74,10 @@ class TestModelLoading(unittest.TestCase):
         f1_new = f1_score(y_holdout, y_pred_new)
 
         # Define expected thresholds for the performance metrics
-        expected_accuracy = 0.0
-        expected_precision = 0.0
-        expected_recall = 0.0
-        expected_f1 = 0.0
+        expected_accuracy = 0.6
+        expected_precision = 0.6
+        expected_recall = 0.6
+        expected_f1 = 0.6
 
         # Assert that the new model meets the performance thresholds
         self.assertGreaterEqual(accuracy_new, expected_accuracy, f'Accuracy should be at least {expected_accuracy}')

@@ -13,7 +13,9 @@ dagshub_token=os.getenv('DAGSHUB_PAT')
 if not dagshub_token:
     raise EnvironmentError('DAGSHUB_PAT environment variable is not set')
 
+print("Before : ",len(dagshub_token))
 dagshub_token = dagshub_token.strip()
+print("After : ",len(dagshub_token))
 
 dagshub.auth.add_app_token(dagshub_token)
 
