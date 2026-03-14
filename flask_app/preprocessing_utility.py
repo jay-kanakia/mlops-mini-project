@@ -7,6 +7,10 @@ import string
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 
+nltk.download('punkt')
+nltk.download('stopwords')
+nltk.download('wordnet')
+
 def lemmatization(text):
     """Lemmatize the text."""
     lemmatizer = WordNetLemmatizer()
