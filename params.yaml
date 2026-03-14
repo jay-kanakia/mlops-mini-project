@@ -6,4 +6,4 @@ feature_engineering:
 
 model_building:
   max_iter: 299
-  l1_ratio: 0.16
+  l1_ratio: 0.2
