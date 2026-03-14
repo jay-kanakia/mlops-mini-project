@@ -2,8 +2,8 @@ data_ingestion:
   test_size: 0.35
 
 feature_engineering:
-  max_features: 245
+  max_features: 300
 
 model_building:
-  max_iter: 300
-  l1_ratio: 0.19
+  max_iter: 299
+  l1_ratio: 0.15
