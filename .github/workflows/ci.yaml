@@ -54,7 +54,7 @@ jobs:
         run: python -m unittest tests/test_flask_app.py
 
       - name: Login to AWS ECR 
-        run |
+        run: |
           aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID}}
           aws confiure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 901619351636.dkr.ecr.us-east-1.amazonaws.com
