@@ -65,7 +65,7 @@ jobs:
 
       - name: Tag Docker image
         run: |
-          docker tag mini-project-ecr:latest 901619351636.dkr.ecr.us-east-1.amazonaws.com/mini-project-ecr:latest
+          docker tag mini-project-ecr:latest 901619351636.dkr.ecr.us-east-1.amazonaws.com/mini-project-ecr:v1
 
       - name: Push Docker image to AWS ECR 
         run: |
