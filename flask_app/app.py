@@ -57,7 +57,7 @@ def predict():
     features = vectorizer.transform([text])
 
     # Convert sparse matrix to DataFrame
-    #features_df = pd.DataFrame.sparse.from_spmatrix(features)
+    features_df = pd.DataFrame.sparse.from_spmatrix(features)
     features_df = pd.DataFrame(features.toarray(), columns=[str(i) for i in range(features.shape[1])])
 
     # prediction
