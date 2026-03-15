@@ -81,4 +81,4 @@
               docker pull ${{ secrets.DOCKER_HUB_USERNAME }}/emotion:latest
               docker stop my-app || true
               docker rm mt-app || true
-              docker run -p 80:5000 --name my-app ${{ secrets.DOCKER_HUB_USERNAME }}/emotion:latest
+              docker run -e DAGSHUB_PAT=d31e526143553afefc5f08e5006eafb34897046a -p 80:5000 --name my-app ${{ secrets.DOCKER_HUB_USERNAME }}/emotion:latest
