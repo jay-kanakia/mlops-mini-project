@@ -141,9 +141,9 @@ def main():
         
         # Log model to MLflow
         model_info_obj = mlflow.sklearn.log_model(sk_model =clf,artifact_path="mini-proj-model")
-        print("model_info_obj : ",model_info_obj)
+        #print("model_info_obj : ",model_info_obj)
         actual_model_uri = model_info_obj.model_uri
-        print("actual_model_uri : ",actual_model_uri)
+        #print("actual_model_uri : ",actual_model_uri)
 
         # Save model info
         save_model_info(run.info.run_id,actual_model_uri,'./reports/model_info.json')
