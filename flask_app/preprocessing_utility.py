@@ -5,60 +5,60 @@ import re
 import nltk
 import string
 from nltk.corpus import stopwords
-from nltk.stem import WordNetLemmatizer
+from nltk.stem.porter import PorterStemmer
 
 nltk.download('punkt')
 nltk.download('stopwords')
 nltk.download('wordnet')
 
-def lemmatization(text):
-    """Lemmatize the text."""
-    lemmatizer = WordNetLemmatizer()
-    text = text.split()
-    text = [lemmatizer.lemmatize(word) for word in text]
-    return " ".join(text)
+def lower_case(text:str)->str:
+  text=text.lower()
+  return text
 
-def remove_stop_words(text):
-    """Remove stop words from the text."""
-    stop_words = set(stopwords.words("english"))
-    text = [word for word in str(text).split() if word not in stop_words]
-    return " ".join(text)
+# remove url
 
-def removing_numbers(text):
-    """Remove numbers from the text."""
-    text = ''.join([char for char in text if not char.isdigit()])
-    return text
+def remove_url(text:str)->str:
+  pattern=re.compile(r'https?://\S+|www\.\S+')
+  return pattern.sub(r'',text)
 
-def lower_case(text):
-    """Convert text to lower case."""
-    text = text.split()
-    text = [word.lower() for word in text]
-    return " ".join(text)
+#remove html tag
+def remove_tag(text:str)->str:
+  pattern=re.compile(r'<.*?>')
+  return pattern.sub(r'',text)
 
-def removing_punctuations(text):
-    """Remove punctuations from the text."""
-    text = re.sub('[%s]' % re.escape(string.punctuation), ' ', text)
-    text = text.replace('؛', "")
-    text = re.sub('\s+', ' ', text).strip()
-    return text
+# remove punctuation
+exclude=string.punctuation
 
-def removing_urls(text):
-    """Remove URLs from the text."""
-    url_pattern = re.compile(r'https?://\S+|www\.\S+')
-    return url_pattern.sub(r'', text)
+def remove_punc(text:str)->str:
+  text=[i for i in text if i not in exclude]
+  return ''.join(text)
 
-def remove_small_sentences(df):
-    """Remove sentences with less than 3 words."""
-    for i in range(len(df)):
-        if len(df.text.iloc[i].split()) < 3:
-            df.text.iloc[i] = np.nan
+# remove stopwords
+stop_words=set(stopwords.words('english'))
+
+def remove_stop_words(text:str)->str:
+  text=[i for i in text.split() if i not in stop_words]
+  return ' '.join(text)
+
+# lemmatization
+ps=PorterStemmer()
+
+def stemming(text:str)->str:
+  text=[ps.stem(i) for i in text.split()]
+  return ' '.join(text)
+
+# isAlphaNum
+def is_alpa_num(text:str)->str:
+  text=[i for i in text.split() if i.isalnum()]
+  return ' '.join(text)
 
 def normalize_text(text):
     text = lower_case(text)
+    text = remove_url(text)
+    text = remove_tag(text)
+    text = remove_punc(text)
     text = remove_stop_words(text)
-    text = removing_numbers(text)
-    text = removing_punctuations(text)
-    text = removing_urls(text)
-    text = lemmatization(text)
+    text = stemming(text)
+    text = is_alpa_num(text)
 
     return text
