@@ -93,7 +93,7 @@ jobs:
           aws deploy create-deployment \
             --application-name MyCodeDeployApplications \
             --deployment-config-name CodeDeployDefault.OneAtATime \
-            --deployment-group-name MyCodeDeployDevelopementGroup \
+            --deployment-group-name BlueGreenCodeDeployementGroup \
             --s3-location bucket=mymlopsminiprojects3bucket,key=deployment.zip,bundleType=zip \
             --file-exists-behavior OVERWRITE \
             --region us-east-1
