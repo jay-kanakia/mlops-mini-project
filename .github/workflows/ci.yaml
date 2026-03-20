@@ -66,25 +66,35 @@ jobs:
 
       - name: Tag Docker image
         run: |
-          docker tag mini-project-ecr:latest 901619351636.dkr.ecr.us-east-1.amazonaws.com/mini-project-ecr:v1
+          docker tag mini-project-ecr:latest 901619351636.dkr.ecr.us-east-1.amazonaws.com/mini-project-ecr:v5
 
       - name: Push Docker image to AWS ECR 
         run: |
-          docker push 901619351636.dkr.ecr.us-east-1.amazonaws.com/mini-project-ecr:v1
+          docker push 901619351636.dkr.ecr.us-east-1.amazonaws.com/mini-project-ecr:v5
 
-      - name: Deploy to EC2
+      # Zip the required files
+      - name: Zip files for deployment
         if: success()
-        uses: appleboy/ssh-action@v0.1.5
-        with: 
-          host: ${{ secrets.EC2_HOST }}
-          username: ${{ secrets.EC2_USER }}
-          key: ${{ secrets.EC2_SSH_KEY }}
-          script: |
-            aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
-            aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-            aws configure set default.region us-east-1
-            aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 901619351636.dkr.ecr.us-east-1.amazonaws.com
-            docker pull 901619351636.dkr.ecr.us-east-1.amazonaws.com/mini-project-ecr:v1
-            docker stop my-app || true
-            docker rm my-app || true
-            docker run -d -p 80:5000 -e DAGSHUB_PAT=${{ secrets.DAGSHUB_PAT }} --name my-app 901619351636.dkr.ecr.us-east-1.amazonaws.com/mini-project-ecr:v1
+        run: |
+          zip -r deployment.zip appspec.yml deploy/scripts/install_dependencies.sh deploy/scripts/start_docker.sh
+
+      # Upload the ZIP file to S3
+      - name: Upload ZIP to S3
+        if: success()
+        run: |
+          aws s3 cp deployment.zip s3://mymlopsminiprojects3bucket/deployment.zip
+
+      # Deploy to AWS CodeDeploy using the uploaded ZIP file
+      - name: Deploy to AWS CodeDeploy
+        if: success()
+        run: |
+          aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws deploy create-deployment \
+            --application-name MyCodeDeployApplications \
+            --deployment-config-name CodeDeployDefault.OneAtATime \
+            --deployment-group-name MyCodeDeployDevelopementGroup \
+            --s3-location bucket=mymlopsminiprojects3bucket,key=deployment.zip,bundleType=zip \
+            --file-exists-behavior OVERWRITE \
+            --region us-east-1
+
